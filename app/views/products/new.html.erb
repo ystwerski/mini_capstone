@@ -1,0 +1,24 @@
+<h1>Please enter the information of the product you would like to enter.</h1>
+	<%= form_tag "/products" do %>
+		<%= label_tag :title %>
+		<%= text_field_tag :title %>
+		<br>
+		<br>
+		<%= label_tag :price %>
+		<%= text_field_tag :price %>
+		<br>
+		<br>
+		<%= label_tag :image_url %>
+		<%= text_field_tag :image_url %>
+		<br>
+		<br>
+		<%= label_tag :description %>
+		<%= text_field_tag :description %>
+		<br>
+		<br>
+		<%= label_tag :category %>
+		<%= text_field_tag :category %>
+		<br>
+		<br>
+		<%= submit_tag "Add product" %>
+	<% end %>

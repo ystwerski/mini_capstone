@@ -1,0 +1,18 @@
+<div>
+<h1>Davindson Organic Spices.</h1>
+
+<% @products.each do |product| %>
+<div class="float">
+<a href="/products/<%= product.id %>">
+<h3><%= product.title %></h3>
+<img src="<%= product.image %>" width="100">
+<br>
+<p><%= number_to_currency(product.price) %></p>
+</a>
+</div>
+
+
+<% end %>
+<a href="/products/new">Add a product to our home page.</a>
+
+</div>
