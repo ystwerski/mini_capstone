@@ -21,5 +21,9 @@
 		<%= text_field_tag :category, @product.category %>
 		<br>
 		<br>
+		<%= label_tag :vendor_id %>
+		<%= text_field_tag :vendor_id, @product.vendor %>
+		<br>
+		<br>
 		<%= submit_tag "Edit product" %>
 	<% end %>

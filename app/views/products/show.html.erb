@@ -1,20 +1,33 @@
-<h1>Product ID: <%= @product.id %></h1>
-<p>Category: <%= @product.category %></p>
-<h2><%= @product.title %></h2>
-<img src="<%= @product.image %>" width="300">
-<h3><%= @product.sale_status %></h3>
-<p>Total: <%= number_to_currency(@product.price) %></p>
-<p>Tax: <%= number_to_currency(@product.tax) %></p>
-<p>Grand Total: <%= number_to_currency(@product.grand_total) %></p>
-<%= @product.total_total.each do |integer| %>
-<% @counter = @counter + 1 %>
-	<ul>
-	<li><%= number_to_currency(integer) %></li>
-	</ul>
-<% end %>
+<div class="row">
+	<div class="col-md-2">
+	<h1>Product ID: <%= @product.id %></h1>
+	</div>
+	<div class="col-md-2">
+	<h3>Category: <%= @product.category %></h3>
+	</div>
+</div>
+<div class="row">
+	<div class ="col-md-3">
+	<h2><%= @product.title %></h2>
+	<img src="<%= @product.image %>" width="300">
+	</div>
+	<div class ="col-md-3">
+	<h3><%= @product.sale_status %></h3>
+	<p>Total: <%= number_to_currency(@product.price) %></p>
+	<p>Tax: <%= number_to_currency(@product.tax) %></p>
+	<p>Grand Total: <%= number_to_currency(@product.grand_total) %></p>
+	</div>
+</div>
 <a href="/products/<%= @product.id %>/edit">Edit this product</a>
 <p>
 <a href="/products/<%= @product.id %>" data-method="delete" rel="nofollow" data-confirm="Are you positive?">Delete product</a>
 </p>
-<hr>
-<%= @product.description %>
+<%= form_tag "/orders" do %>
+		<%= label_tag :quantity %>
+		<%= text_field_tag :quantity %>
+
+		<%= hidden_field_tag :product_id, @product.id %>
+		<br>
+		<br>
+<%= submit_tag "Purchase Now!" %>
+		<% end %>

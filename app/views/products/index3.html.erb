@@ -1,0 +1,12 @@
+<% counter = 0 %>
+<% 5.times do %>
+ 	<div class="row">
+ 		<div class="col-md-2">
+ 		<a href ="/products/<%= @products[counter].id %>">
+ 		<h3><%= @products[counter].title %></h3>
+ 		<img src="<%= @products[counter].image %>" width="210">
+ 		</a>
+ 		</div>
+ 		<% counter = counter + 1 %>
+ <% end %>
+ </div>

@@ -1,18 +1,36 @@
-<div>
-<h1>Davindson Organic Spices.</h1>
-
-<% @products.each do |product| %>
-<div class="float">
-<a href="/products/<%= product.id %>">
-<h3><%= product.title %></h3>
-<img src="<%= product.image %>" width="100">
-<br>
-<p><%= number_to_currency(product.price) %></p>
-</a>
-</div>
-
-
-<% end %>
-<a href="/products/new">Add a product to our home page.</a>
-
-</div>
+<% 2.times do %>
+ 	<div class="row">
+ 		<div class="col-md-2"><p></p></div>
+ 		<div class="col-md-2">
+ 		<a href ="/products/<%= @products[0].id %>">
+ 		<h3><%= @products[0].title %></h3>
+ 		<img src="<%= @products[0].image %>" width="210">
+ 		</a>
+ 		</div>
+ 		<% @products = @products.rotate %>
+ <% end %>
+ </div>
+ <% 2.times do %>
+ 	<div class="row">
+ 		<div class="col-md-2"><p></p></div>
+ 		<div class="col-md-2">
+ 		<a href ="/products/<%= @products[0].id %>">
+ 		<h3><%= @products[0].title %></h3>
+ 		<img src="<%= @products[0].image %>" width="210">
+ 		</a>
+ 		</div>
+ 		<% @products = @products.rotate %>
+ <% end %>
+ </div>
+ <% 1.times do %>
+ 	<div class="row">
+ 		<div class="col-md-4"><p></p></div>
+ 		<div class="col-md-2">
+ 		<a href ="/products/<%= @products[0].id %>">
+ 		<h3><%= @products[0].title %></h3>
+ 		<img src="<%= @products[0].image %>" width="210">
+ 		</a>
+ 		</div>
+ 		<% @products = @products.rotate %>
+ <% end %>
+ </div>

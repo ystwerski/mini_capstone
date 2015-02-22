@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
 
 	def index
 		@products = Product.all
+		key_number = @products.count
 		if params[:sort_by] == "discount"
 			@products = @products.where("price < ?", 10.00)
 		elsif params[:sort_by] == "cheapest"
@@ -33,7 +34,6 @@ class ProductsController < ApplicationController
 	end
 
 	def show
-		@counter = 0
 		@message_1 = "Total:"
 		@message_2 = "Tax:"
 		@message_3 = "Grand Total:"
@@ -51,7 +51,7 @@ class ProductsController < ApplicationController
 
 	def update
 		@product = Product.find(params[:id])
-		@product.update({:title => params[:title], :price => params[:price], :image => params[:image_url], :description => params[:description], :category => params[:category]})
+		@product.update({:title => params[:title], :price => params[:price], :image => params[:image_url], :description => params[:description], :category => params[:category], :vendor_id => params[:vendor]})
 		flash[:success] = "Product successfully updated!"
 		redirect_to "/products/#{@product.id}"	
 	end
@@ -61,6 +61,18 @@ class ProductsController < ApplicationController
 		@product.destroy
 		flash[:danger] = "Product successfully deleted!"
 		redirect_to "/products"
+	end
+
+	def reveal
+		@message_1 = "Total:"
+		@message_2 = "Tax:"
+		@message_3 = "Grand Total:"
+		if params[:random] == "true"
+			@product = Product.all.sample
+		elsif
+			@product = Product.find(params[:id])
+		end
+
 	end
 
 end

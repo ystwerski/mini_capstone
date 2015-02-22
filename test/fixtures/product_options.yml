@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  black: MyString
+  white: MyString
+  blue: MyString
+  8_person: MyString
+  12_person: MyString
+  20_person: MyString
+  single: MyString
+  double: MyString
+  queen: MyString
+  king: MyString
+
+two:
+  black: MyString
+  white: MyString
+  blue: MyString
+  8_person: MyString
+  12_person: MyString
+  20_person: MyString
+  single: MyString
+  double: MyString
+  queen: MyString
+  king: MyString

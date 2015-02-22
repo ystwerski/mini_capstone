@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+	has_many :product_options
+	belongs_to :vendor
+	has_many :orders
 
 	def sale_status
 		if price < 2.00
@@ -23,7 +26,10 @@ class Product < ActiveRecord::Base
 		return price_info
 	end
 
+	def cycle_through
 
 
+
+	end
 end
 

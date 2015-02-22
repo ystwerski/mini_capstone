@@ -1,0 +1,10 @@
+ <% @products.each do |product| %>
+ 	<div class="row">
+ 		<div class="col-md-2">
+ 		<a href ="/products/<%= product.id %>">
+ 		<h3><%= product.title %></h3>
+ 		<img src="<%= product.image %>" width="210">
+ 		</a>
+ 		</div>
+ <% end %>
+ </div>

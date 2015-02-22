@@ -1,0 +1,20 @@
+<h1>Product ID: <%= @product.id %></h1>
+<p>Category: <%= @product.category %></p>
+<h2><%= @product.title %></h2>
+<img src="<%= @product.image %>" width="300">
+<br>
+<a href="/products/<%= @product.id %>/edit">Edit this product</a>
+<p>
+<a href="/products/<%= @product.id %>" data-method="delete" rel="nofollow" data-confirm="Are you positive?">Delete product</a>
+</p>
+<hr>
+<%= @product.description %>
+<%= form_tag "/orders" do %>
+		<%= label_tag :quantity %>
+		<%= text_field_tag :quantity %>
+
+		<%= hidden_field_tag :product_id, @product.id %>
+		<br>
+		<br>
+<%= submit_tag "Purchase Now!" %>
+		<% end %>
