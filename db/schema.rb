@@ -11,14 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224011227) do
-
-  create_table "categorice_products", force: :cascade do |t|
-    t.integer  "product_id",  limit: 4
-    t.integer  "category_id", limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-  end
+ActiveRecord::Schema.define(version: 20150225085249) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -27,16 +20,23 @@ ActiveRecord::Schema.define(version: 20150224011227) do
     t.datetime "updated_at"
   end
 
+  create_table "categorized_products", force: :cascade do |t|
+    t.integer  "product_id",  limit: 4
+    t.integer  "category_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", force: :cascade do |t|
-    t.integer  "user_id",            limit: 4
-    t.integer  "product_options_id", limit: 4
-    t.integer  "product_id",         limit: 4
-    t.integer  "quantity",           limit: 4
-    t.text     "subtotal",           limit: 65535
-    t.text     "tax",                limit: 65535
-    t.decimal  "total",                            precision: 10
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.integer  "user_id",    limit: 4
+    t.text     "subtotal",   limit: 65535
+    t.text     "tax",        limit: 65535
+    t.decimal  "total",                    precision: 10
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "status",     limit: 255
+    t.integer  "product_id", limit: 4
+    t.integer  "quantity",   limit: 4
   end
 
   create_table "product_options", force: :cascade do |t|
@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(version: 20150224011227) do
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
     t.integer  "vendor_id",   limit: 4
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "product_id", limit: 4
+    t.integer  "quantity",   limit: 4
+    t.decimal  "total",                precision: 8, scale: 2
+    t.decimal  "tax",                  precision: 7, scale: 2
+    t.decimal  "subtotal",             precision: 9, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|

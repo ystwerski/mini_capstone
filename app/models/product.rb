@@ -2,6 +2,8 @@ class Product < ActiveRecord::Base
 	has_many :product_options
 	belongs_to :vendor
 	has_many :orders
+	has_many :categorized_products
+	has_many :categories, :through => :categorized_products
 
 	def sale_status
 		if price < 2.00

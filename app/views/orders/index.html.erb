@@ -1,0 +1,12 @@
+<h1>Finalize purchase?</h1>
+<% @orders.each do |order| %>
+	<% product = order.product %>
+	<h3><%= product.title %></h3>
+	<h4>Quantity: <%= order.quantity %></h4>
+<% end %>
+
+
+<%= form_tag "/purchases" do %>
+
+	<%= submit_tag "Purchase!" %>
+	<% end %>

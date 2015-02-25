@@ -19,4 +19,9 @@ delete "products/:id" => "products#destroy"
 
 post "/orders" => "orders#create"
 
+get "/orders" => "orders#index"
+
+delete "/orders/:id" => "orders#destroy"
+
+post "/purchases" => "purchases#create"
 end
