@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20150225085249) do
   create_table "categorized_products", force: :cascade do |t|
     t.integer  "product_id",  limit: 4
     t.integer  "category_id", limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "orders", force: :cascade do |t|
