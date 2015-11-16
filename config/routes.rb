@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-get "/" => "products#index"
+get "/" => "products#index1"
 get "/products" => "products#index"
 
 get "/products/new" => "products#new"

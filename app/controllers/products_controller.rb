@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
 
-	def index
+	def index1
 		@products = Product.all
 		key_number = @products.count
 		if params[:sort_by] == "discount"
